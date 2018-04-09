@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use App\InventoryStock;
 
 class ItemsController extends Controller
 {
@@ -24,10 +25,25 @@ class ItemsController extends Controller
         $item->remarks = $remarks;
 
         if($item->save()){
-            $resp['msg'] = 'Item added successful';
-            $resp['codes'] = $item->codes;
-            $resp['error'] = 0;
-            $resp['success'] = 1;
+            $stock = new InventoryStock();
+            $stock->codes = $codes;
+            $stock->received = 0;
+            $stock->sales = 0;
+            $stock->stocks = 0;
+            $stock->total_sales_price = 0;
+
+            if($stock->save()){
+                $resp['msg'] = 'Item added successful';
+                $resp['codes'] = $stock->codes;
+                $resp['error'] = 2;
+                $resp['success'] = 0;
+            }else{
+                $resp['msg'] = 'Failed to associate stock';
+                $resp['codes'] = $stock->codes;
+                $resp['error'] = 3;
+                $resp['success'] = 0;
+            }
+           
         }else{
             $resp['msg'] = 'Process up failed';
             $resp['codes'] = 0;
