@@ -18,4 +18,7 @@ use Illuminate\Http\Request;
 });*/
 
 Route::post('/operators/register', 'OperatorRegisterController@register');
-Route::post('/operators', 'OperatorLoginController@login');
+Route::post('/operators/login', 'OperatorLoginController@login');
+
+//Items routes
+Route::post('/items', 'ItemsController@save');
