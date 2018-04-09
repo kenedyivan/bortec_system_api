@@ -22,3 +22,6 @@ Route::post('/operators/login', 'OperatorLoginController@login');
 
 //Items routes
 Route::post('/items', 'ItemsController@save');
+
+//Received products routes
+Route::post('/items/received', 'ReceivedProductsController@save');

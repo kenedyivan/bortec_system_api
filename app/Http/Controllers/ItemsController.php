@@ -26,7 +26,7 @@ class ItemsController extends Controller
 
         if($item->save()){
             $stock = new InventoryStock();
-            $stock->codes = $codes;
+            $stock->item_id = $item->id;
             $stock->received = 0;
             $stock->sales = 0;
             $stock->stocks = 0;
@@ -34,12 +34,12 @@ class ItemsController extends Controller
 
             if($stock->save()){
                 $resp['msg'] = 'Item added successful';
-                $resp['codes'] = $stock->codes;
+                $resp['inventory_id'] = $stock->id;
                 $resp['error'] = 2;
                 $resp['success'] = 0;
             }else{
                 $resp['msg'] = 'Failed to associate stock';
-                $resp['codes'] = $stock->codes;
+                $resp['inventory_id'] = $stock->id;
                 $resp['error'] = 3;
                 $resp['success'] = 0;
             }
