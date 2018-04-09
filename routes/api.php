@@ -25,3 +25,6 @@ Route::post('/items', 'ItemsController@save');
 
 //Received products routes
 Route::post('/items/received', 'ReceivedProductsController@save');
+
+//Sales routes
+Route::post('/items/sales', 'SalesController@save');

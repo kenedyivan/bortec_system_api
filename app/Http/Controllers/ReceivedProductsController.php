@@ -38,6 +38,10 @@ class ReceivedProductsController extends Controller
                     $initial_stock = $inventory->stocks;
                     $initial_stock += $quantity;
                     $inventory->stocks = $initial_stock;
+                    $total_expenditure_cost = $inventory->total_expenditure_cost;
+                    $total_expenditure_cost += ($item->unit_price * $quantity);
+                    $inventory->total_expenditure_cost = $total_expenditure_cost;
+                    
                     if($inventory->save()){
                         $resp['msg'] = 'Item received successfully';
                         $resp['received_id'] = $receivedItem->id;
