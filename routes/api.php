@@ -22,9 +22,11 @@ Route::post('/operators/login', 'OperatorLoginController@login');
 
 //Items routes
 Route::post('/items', 'ItemsController@save');
+Route::get('/items/show', 'ItemsController@show');
 
 //Received products routes
 Route::post('/items/received', 'ReceivedProductsController@save');
 
 //Sales routes
 Route::post('/items/sales', 'SalesController@save');
+Route::get('/items/operator/sales', 'OperatorSalesController@getOperatorSalesLog');

@@ -9,6 +9,7 @@ use App\InventoryStock;
 
 class SalesController extends Controller
 {
+
     function save(Request $request){
         $resp = array();
 
