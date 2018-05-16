@@ -23,6 +23,7 @@ class OperatorSalesController extends Controller
                     $logData['item_name'] = $log->item->product_name;
                     $logData['quantity'] = $log->quantity;
                     $logData['date'] = date_format($log->created_at,"Y/m/d H:i:s");
+                    $logData['unit_price'] = $log->item->unit_price;;
                     array_push($allLogs,$logData);
                 }
                 $resp['msg'] = 'Operator sales logs';

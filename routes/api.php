@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +20,8 @@ use Illuminate\Http\Request;
 
 Route::post('/operators/register', 'OperatorRegisterController@register');
 Route::post('/operators/login', 'OperatorLoginController@login');
+Route::post('/operators/edit/save', 'OperatorLoginController@save');
+Route::post('/operators/upload', 'OperatorLoginController@uploadPhoto');
 
 //Items routes
 Route::post('/items', 'ItemsController@save');
@@ -30,3 +33,12 @@ Route::post('/items/received', 'ReceivedProductsController@save');
 //Sales routes
 Route::post('/items/sales', 'SalesController@save');
 Route::get('/items/operator/sales', 'OperatorSalesController@getOperatorSalesLog');
+
+//OWM
+Route::get('/owm',function (Request $request){
+
+
+
+
+
+});
